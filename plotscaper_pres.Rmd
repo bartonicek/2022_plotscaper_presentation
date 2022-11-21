@@ -204,13 +204,19 @@ class: middle
 
 # Plotscaper: The big picture
 
-- Goal: a new generation statistical interactive data exploration tool for researchers and data scientists
-- Aiming for the *Goldilocks zone*: 
+- **Goal**: a new generation statistical interactive data exploration tool for researchers and data scientists
+- Aiming for the ***Goldilocks zone***: 
   - Low-code enough so that exploration is cost-effective
   - Flexible enough to allow for a range of visualizations
-- Interactions consistent across different plot types
-- Easy to set up multiplot figures with shared data & state
-- Follow data visualization principles, use sensible defaults
+- Interactions **consistent** across different plot types
+- Easy to make multiplot figures with **shared data & state**
+- Data visualization **principles** & sensible defaults
+
+---
+
+class: inverse, center, middle
+
+# Demo
 
 ---
 
@@ -226,9 +232,17 @@ devtools::install_github("bartonicek/plotscaper")
 - Currently supported interactivity: 
   - transient/persistent selection
   - panning, changing size and alpha
-- Written in pure TypeScript/Javascript
+- Pure TypeScript/Javascript
 - Just a JS file: Runs in RStudio viewer, RMarkdown,...
-- CSS grid layout for interesting figures
+- CSS grid layout for arranging plots
+
+---
+
+# Contact me
+
+- Looking for feedback, suggestions
+- bartonicek@gmail.com
+- [https://github.com/bartonicek](https://github.com/bartonicek)
 
 ---
 
@@ -236,3 +250,5 @@ devtools::install_github("bartonicek/plotscaper")
 
 - Batch, Andrea, and Niklas Elmqvist. 2017. “The Interactive Visualization Gap in Initial Exploratory Data Analysis.” *IEEE Transactions on Visualization and Computer Graphics* 24 (1): 278–87.
 - Tufte, Edward R. 2001. *The Visual Display of Quantitative Information*. Cheshire, Connecticut: Graphics Press LLC.
+
+
