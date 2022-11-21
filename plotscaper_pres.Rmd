@@ -1,0 +1,238 @@
+---
+title: "Interactive Data Exploration"
+subtitle: "with Plotscaper"
+author: "Adam Bartonicek <br> (supervised by Dr. Simon Urbanek)"
+date: "23-10-2022"
+output:
+  xaringan::moon_reader:
+    css: ["default", "styles.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["left", "middle"]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle, inverse
+# Interactive data visualizations are more and more popular...
+
+---
+
+background-image: url('interactive2.png')
+background-size: contain
+
+---
+
+background-image: url('interactive3.png')
+background-size: contain
+
+---
+
+background-image: url('interactive1.png')
+background-size: contain
+
+---
+
+class: center, middle, inverse
+
+# Uncomfortable personal question
+
+---
+
+class: center, middle, inverse
+
+# Do you use interactive visualizations to explore your data?
+
+---
+
+class: middle
+
+
+> "Rapid advances in the power, simplicity, and familiarity of visualization combined with an increasing awareness of the potential of visual communication have pushed the field to the cusp of mainstream breakthrough in society.  
+
+> [...] Still, very few data science tools and workflows actually employ interactive visualization as anything more than a mere communication tool used to disseminate results at the end of an investigation to stakeholders and the general public."
+
+> (Batch & Elmquist, 2017)
+
+---
+
+class: center, middle
+
+.pull-left[
+  ## Presentation ✓
+]
+
+.pull-right[
+  ## Exploration ✗
+]
+
+---
+
+class: inverse, center, middle
+
+# Why is that?
+
+---
+
+# Two branches: History
+
+.pull-left[
+.center[## Statistics]
+- Started in the 1970's
+- Standalone or integrated with stat. computing software (e.g. XLisp, R)
+- PRIM-9, XGobi/GGobi, XLispStat, Mondrian, iPlots
+]
+
+.pull-right[
+.center[## Computer science]
+- Started in 2000's
+- Made for Web
+- Prefuse, D3js, plotly, highcharter, Vega
+]
+
+---
+
+class: inverse
+background-image: url('prim9a.gif')
+background-size: contain
+
+# PRIM 9
+
+---
+
+class: inverse
+background-image: url('prim9b.gif')
+background-size: contain
+
+# PRIM 9
+
+---
+
+class: inverse
+background-image: url('ggobi1.jpg')
+background-size: contain
+
+# GGobi
+
+---
+
+background-image: url('plotly.png')
+background-size: contain
+
+# Plotly
+
+
+---
+
+# Two branches: Approaches
+
+.pull-left[
+.center[## Statistics]
+- Data exploration
+- Specialized but low code
+- Select number of useful interactions
+- Target: researchers, working statisticians
+]
+
+.pull-right[
+.center[## Computer science]
+- Data presentation
+- Flexible but high code  
+- Many interactions
+- Shallow interaction easy, deep interaction hard
+- Target: anyone with a web browser
+]
+
+---
+
+class: inverse, center, middle
+
+# Interactive data visualization space became dominated by the CS branch
+
+---
+
+# Why this matters?
+
+.pull-left[
+.green[
+- Part of researchers' and data scientists' job is to communicate findings
+- Flexible, high-code systems are great when many people will see the results
+- Customize a vis. to do precisely what you want
+]
+]
+
+.pull-right[
+.red[
+- Need to discover the findings in the first place 
+- Time/effort cost may be too high for $n = 1$
+- Violated expectations
+- Hard to implement *interesting* interactions
+- Footgun
+  ]
+]
+
+
+---
+
+class: middle
+
+>"Interactivity appeared only once in our study, in a sketch; this indicates that the desire to build interactive views is present within the data science community, but the costs of using the tools outweigh the need during initial exploration."
+  
+>Batch & Elmquist, 2017
+
+.small[.center[(sample size of 8, but is this surprising?)]]
+
+---
+
+# Data exploration vs. presentation
+
+- Two very different ecological niches
+- Sometimes fundamentally different goals:
+
+> "Graphical excellence is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space."
+
+> *[...and least interaction?]*
+
+> Tufte, 2001
+
+---
+
+# Plotscaper: The big picture
+
+- Goal: a new generation statistical interactive data exploration tool for researchers and data scientists
+- Aiming for the *Goldilocks zone*: 
+  - Low-code enough so that exploration is cost-effective
+  - Flexible enough to allow for a range of visualizations
+- Interactions consistent across different plot types
+- Easy to set up multiplot figures with shared data & state
+- Follow data visualization principles, use sensible defaults
+
+---
+
+# Plotscaper: Where it is now
+
+```{r, eval = FALSE}
+devtools::install_github("bartonicek/plotscaper")
+```
+
+- 5 wrapper plot types: 
+  - scatterplot, barplot, histogram, bubbleplot, squareplot
+- MapReduce-like statistics, `ggplot2`-like aesthetics
+- Currently supported interactivity: 
+  - transient/persistent selection
+  - panning, changing size and alpha
+- Written in pure TypeScript/Javascript
+- Just a JS file: Runs in RStudio viewer, RMarkdown,...
+- CSS grid layout for interesting figures
+
+---
+
+# References
+
+- Batch, Andrea, and Niklas Elmqvist. 2017. “The Interactive Visualization Gap in Initial Exploratory Data Analysis.” *IEEE Transactions on Visualization and Computer Graphics* 24 (1): 278–87.
+- Tufte, Edward R. 2001. *The Visual Display of Quantitative Information*. Cheshire, Connecticut: Graphics Press LLC.

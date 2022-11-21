@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Interactive Data Exploration</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Adam Bartonicek   (supervised by Dr. Simon Urbanek)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+.title[
+# Interactive Data Exploration
+]
+.subtitle[
+## with Plotscaper
+]
+.author[
+### Adam Bartonicek <br> (supervised by Dr. Simon Urbanek)
+]
+.date[
+### 23-10-2022
+]
+
+---
+
+
+
+
+class: center, middle, inverse
+# Interactive data visualizations are more and more popular...
+
+---
+
+background-image: url('interactive2.png')
+background-size: contain
+
+---
+
+background-image: url('interactive3.png')
+background-size: contain
+
+---
+
+background-image: url('interactive1.png')
+background-size: contain
+
+---
+
+class: center, middle, inverse
+
+# Uncomfortable personal question
+
+---
+
+class: center, middle, inverse
+
+# Do you use interactive visualizations to explore your data?
+
+---
+
+class: middle
+
+
+&gt; "Rapid advances in the power, simplicity, and familiarity of visualization combined with an increasing awareness of the potential of visual communication have pushed the field to the cusp of mainstream breakthrough in society.  
+
+&gt; [...] Still, very few data science tools and workflows actually employ interactive visualization as anything more than a mere communication tool used to disseminate results at the end of an investigation to stakeholders and the general public."
+
+&gt; (Batch &amp; Elmquist, 2017)
+
+---
+
+class: center, middle
+
+.pull-left[
+  ## Presentation ✓
+]
+
+.pull-right[
+  ## Exploration ✗
+]
+
+---
+
+class: inverse, center, middle
+
+# Why is that?
+
+---
+
+# Two branches: History
+
+.pull-left[
+.center[## Statistics]
+- Started in the 1970's
+- Standalone or integrated with stat. computing software (e.g. XLisp, R)
+- PRIM-9, XGobi/GGobi, XLispStat, Mondrian, iPlots
+]
+
+.pull-right[
+.center[## Computer science]
+- Started in 2000's
+- Made for Web
+- Prefuse, D3js, plotly, highcharter, Vega
+]
+
+---
+
+class: inverse
+background-image: url('prim9a.gif')
+background-size: contain
+
+# PRIM 9
+
+---
+
+class: inverse
+background-image: url('prim9b.gif')
+background-size: contain
+
+# PRIM 9
+
+---
+
+class: inverse
+background-image: url('ggobi1.jpg')
+background-size: contain
+
+# GGobi
+
+---
+
+background-image: url('plotly.png')
+background-size: contain
+
+# Plotly
+
+
+---
+
+# Two branches: Approaches
+
+.pull-left[
+.center[## Statistics]
+- Data exploration
+- Specialized but low code
+- Select number of useful interactions
+- Target: researchers, working statisticians
+]
+
+.pull-right[
+.center[## Computer science]
+- Data presentation
+- Flexible but high code  
+- Many interactions
+- Shallow interaction easy, deep interaction hard
+- Target: anyone with a web browser
+]
+
+---
+
+class: inverse, center, middle
+
+# Interactive data visualization space became dominated by the CS branch
+
+---
+
+# Why this matters?
+
+.pull-left[
+.green[
+- Part of researchers' and data scientists' job is to communicate findings
+- Flexible, high-code systems are great when many people will see the results
+- Customize a vis. to do precisely what you want
+]
+]
+
+.pull-right[
+.red[
+- Need to discover the findings in the first place 
+- Time/effort cost may be too high for `\(n = 1\)`
+- Violated expectations
+- Hard to implement *interesting* interactions
+- Footgun
+  ]
+]
+
+
+---
+
+class: middle
+
+&gt;"Interactivity appeared only once in our study, in a sketch; this indicates that the desire to build interactive views is present within the data science community, but the costs of using the tools outweigh the need during initial exploration."
+  
+&gt;Batch &amp; Elmquist, 2017
+
+.small[.center[(sample size of 8, but is this surprising?)]]
+
+---
+
+# Data exploration vs. presentation
+
+- Two very different ecological niches
+- Sometimes fundamentally different goals:
+
+&gt; "Graphical excellence is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space."
+
+&gt; *[...and least interaction?]*
+
+&gt; Tufte, 2001
+
+---
+
+# Plotscaper: The big picture
+
+- Goal: a new generation statistical interactive data exploration tool for researchers and data scientists
+- Aiming for the *Goldilocks zone*: 
+  - Low-code enough so that exploration is cost-effective
+  - Flexible enough to allow for a range of visualizations
+- Interactions consistent across different plot types
+- Easy to set up multiplot figures with shared data &amp; state
+- Follow data visualization principles, use sensible defaults
+
+---
+
+# Plotscaper: Where it is now
+
+
+```r
+devtools::install_github("bartonicek/plotscaper")
+```
+
+- 5 wrapper plot types: 
+  - scatterplot, barplot, histogram, bubbleplot, squareplot
+- MapReduce-like statistics, `ggplot2`-like aesthetics
+- Currently supported interactivity: 
+  - transient/persistent selection
+  - panning, changing size and alpha
+- Written in pure TypeScript/Javascript
+- Just a JS file: Runs in RStudio viewer, RMarkdown,...
+- CSS grid layout for interesting figures
+
+---
+
+# References
+
+- Batch, Andrea, and Niklas Elmqvist. 2017. “The Interactive Visualization Gap in Initial Exploratory Data Analysis.” *IEEE Transactions on Visualization and Computer Graphics* 24 (1): 278–87.
+- Tufte, Edward R. 2001. *The Visual Display of Quantitative Information*. Cheshire, Connecticut: Graphics Press LLC.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
